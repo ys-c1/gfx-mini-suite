@@ -1,5 +1,47 @@
 # mini-grid-cull
 
-2D uniform-grid broadphase for sprite culling (C11, no deps)
+2D uniform-grid broadphase for sprite culling (C11, no deps)。
+
+支持两种维护路径，二者对同一批条目的查询返回集合与顺序完全一致：
+
+- **原地维护**（每帧使用）：`grid_move` / `grid_remove` / `grid_insert`，
+  只改动受影响的格，无需整体重建。
+- **全量重建**（保留可用）：`grid_rebuild` 用一批条目替换网格全部内容。
 
 构建与测试：`make test`。
+
+## 数据结构
+
+- 每个格是一条**双向链表**（`head/prev/next`），跨格移动与删除都是 O(1) 指针调整。
+- `id -> 槽位` 用两级**直接映射表**（无哈希冲突、期望 O(1)），支持任意 int id
+  （含负数）；删除的槽位进空闲链表复用，不残留。
+- 槽位带 `slotcell` 标记，空闲槽位不参与任何查询。
+- 查询把候选槽位按 `(格号, id)` 堆排序后输出，因此结果顺序只取决于当前内容，
+  与插入/移动/删除历史无关——这是两条路径顺序一致的保证。
+
+## 返回码
+
+| 值 | 宏 | 含义 |
+|---|---|---|
+| 0 | `GRID_OK` | 成功；`grid_move` 时表示条目仍在原格，仅坐标更新 |
+| 1 | `GRID_MOVED_CELL` | `grid_move` 成功且条目迁入新格 |
+| -1 | `GRID_ERR_INVALID` | 空指针 / 参数非法 / 重复 id |
+| -2 | `GRID_ERR_BOUNDS` | 目标坐标在世界范围之外 |
+| -3 | `GRID_ERR_NOID` | id 不存在（含空网格删除、重复删除） |
+| -4 | `GRID_ERR_EMPTY` | 空网格上执行 `grid_move` |
+
+三类异常可区分：越界移动 `-2`、重复删除（id 不存在）`-3`、空网格 `-4`。
+注意空网格上的删除归类为 `-3`（本来就没有该 id），空网格上的移动归类为 `-4`。
+
+## 复杂度
+
+| 操作 | 复杂度 |
+|---|---|
+| `grid_insert` / `grid_move` / `grid_remove` | 期望 O(1) |
+| `grid_query_circle` | O(候选数 + 命中数·log 命中数) |
+| `grid_rebuild` | O(n + 格数) |
+| `grid_clear` | O(已分配槽位 + 格数) |
+
+原地路径每帧成本与「实际跨格条目数」相关，而非全部条目；同格移动只写坐标，
+不触碰链表。全量传送（所有条目都跨格）是原地路径的最坏情况，其每帧耗时上界
+见测试输出的 worst 列，仍为 O(n) 且常数很小。
