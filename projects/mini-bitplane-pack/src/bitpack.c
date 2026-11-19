@@ -46,6 +46,31 @@ int unpack_rows(const uint8_t* packed, size_t packed_len, int w, int h, int bpp,
     return 0;
 }
 
+int unpack_rows_at(const uint8_t* packed, size_t packed_len, int w, int h, int bpp,
+                   size_t start_bit, long nbits, uint8_t* idx, size_t* out_count) {
+    if (!packed || !idx || !out_count) return UNPACK_AT_ERR_ARG;
+    if (w <= 0 || h <= 0 || bpp <= 0 || bpp > 8) return UNPACK_AT_ERR_ARG;
+    size_t need = packed_size(w, h, bpp);
+    if (packed_len < need) return UNPACK_AT_ERR_ARG;
+    if (nbits < 0) return UNPACK_AT_ERR_NEG;
+    size_t total_bits = (size_t)w * (size_t)h * (size_t)bpp;
+    if (start_bit >= total_bits) return UNPACK_AT_ERR_START;
+    if ((size_t)nbits > total_bits - start_bit) return UNPACK_AT_ERR_SPAN;
+    size_t n = (size_t)nbits / (size_t)bpp; /* 末尾不足一个索引的零头截断 */
+    size_t bit = start_bit;
+    for (size_t i = 0; i < n; ++i) {
+        uint8_t v = 0;
+        for (int b = 0; b < bpp; ++b) {
+            v = (uint8_t)(v << 1);
+            if (packed[bit >> 3] & (uint8_t)(0x80u >> (bit & 7u))) v |= 1u;
+            ++bit;
+        }
+        idx[i] = v;
+    }
+    *out_count = n;
+    return UNPACK_AT_OK;
+}
+
 int count_used_values(const uint8_t* idx, size_t n, int bpp) {
     if (!idx || bpp <= 0 || bpp > 8) return -1;
     uint8_t vmax = (uint8_t)((1u << bpp) - 1u);
