@@ -1,0 +1,4 @@
+weights_tag,wl,wr,status_code,full_scale_frames,clipped_frames,peak_out,peak_bound_ok,structural_violations,out_hash_fnv1a
+w050_050,0.500000,0.500000,2,3,0,1,1,0,64e7bd31484bcbd7
+w030_070,0.300000,0.700000,2,3,0,1,1,0,3d45b600f6f7afc6
+w020_080,0.200000,0.800000,2,3,0,1,1,0,481d1c535c7265e7

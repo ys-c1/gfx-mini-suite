@@ -1,0 +1,11 @@
+case,channels_in,wl,wr,status_code,status_name,frames_processed,peak_out,clipped_frames,mono_passthrough_frames,output_untouched
+nominal_stereo,2,0.5,0.5,0,OK,100,0.423360169,0,0,1
+illegal_weights_sum,2,0.5,0.6,-2,E_WEIGHTS,0,0,0,0,1
+illegal_weights_negative,2,-0.1,1.1,-2,E_WEIGHTS,0,0,0,0,1
+illegal_weights_nan,2,nan,0.5,-2,E_WEIGHTS,0,0,0,0,1
+unsupported_channels_3,3,0.5,0.5,-3,E_CHANNELS,0,0,0,0,1
+unsupported_channels_4,4,0.5,0.5,-3,E_CHANNELS,0,0,0,0,1
+unsupported_channels_0,0,0.5,0.5,-3,E_CHANNELS,0,0,0,0,1
+mono_passthrough,1,0.5,0.5,1,OK_MONO,100,0.423438817,0,100,1
+mono_ignores_bad_weights,1,0,0,1,OK_MONO,100,0.423438817,0,100,1
+full_scale_stereo,2,0.5,0.5,2,OK_FULL_SCALE,4,1,0,0,1

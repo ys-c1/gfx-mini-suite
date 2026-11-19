@@ -1,0 +1,34 @@
+=== mini-audio-fifo
+54 checks, 0 failures
+=== mini-bitplane-pack
+102 checks, 0 failures
+=== mini-grid-cull
+src/grid.c: In function ‘cell_of’:
+src/grid.c:29:5: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+   29 |     if (cx < 0) cx = 0; if (cx >= g->cols) cx = g->cols - 1;
+      |     ^~
+src/grid.c:29:25: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   29 |     if (cx < 0) cx = 0; if (cx >= g->cols) cx = g->cols - 1;
+      |                         ^~
+src/grid.c:30:5: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+   30 |     if (cy < 0) cy = 0; if (cy >= g->rows) cy = g->rows - 1;
+      |     ^~
+src/grid.c:30:25: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   30 |     if (cy < 0) cy = 0; if (cy >= g->rows) cy = g->rows - 1;
+      |                         ^~
+src/grid.c: In function ‘grid_query_circle’:
+src/grid.c:57:5: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+   57 |     if (c0x < 0) c0x = 0; if (c0y < 0) c0y = 0;
+      |     ^~
+src/grid.c:57:27: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   57 |     if (c0x < 0) c0x = 0; if (c0y < 0) c0y = 0;
+      |                           ^~
+445 checks, 0 failures
+=== mini-palette-dither
+PASS test_invalid_levels
+PASS test_nearest_identity
+PASS test_uniform_levels
+PASS test_usage_counts
+4 checks, 0 failures
+=== mini-tone-lut
+264 checks, 0 failures
