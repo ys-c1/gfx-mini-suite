@@ -1,0 +1,390 @@
+{
+  "block_sizes": [
+    6,
+    12
+  ],
+  "rows": [
+    {
+      "block_size": 6,
+      "bpp": 2,
+      "description": "vertical sky gradient with text",
+      "deterministic": true,
+      "luma_bias_dither": -2.164560359700364,
+      "luma_bias_plain": -1.2599410888670544,
+      "luma_error_bound_dither": 64.46019999999999,
+      "luma_error_bound_plain": 41.90559999999999,
+      "mean_color_error_dither": 25.04086642795139,
+      "mean_color_error_plain": 22.3878173828125,
+      "ms_dither": 49.35031299828552,
+      "ms_plain": 19.25190197653137,
+      "packed_bytes_dither": 6144,
+      "packed_bytes_plain": 6144,
+      "packed_deflate_bytes_dither": 642,
+      "packed_deflate_bytes_plain": 124,
+      "packed_deflate_ratio": 5.17741935483871,
+      "packed_ratio": 1.0,
+      "palette": [
+        [
+          8,
+          16,
+          40
+        ],
+        [
+          40,
+          96,
+          160
+        ],
+        [
+          120,
+          184,
+          232
+        ],
+        [
+          250,
+          250,
+          250
+        ]
+      ],
+      "required_bpp_dither": 2,
+      "required_bpp_plain": 2,
+      "sample": "vgrad",
+      "size": [
+        192,
+        128
+      ],
+      "suppressed_pixels": 2232,
+      "suppressed_pixels_changed": 0,
+      "tile_luma_error_dither": 6.9569607503255435,
+      "tile_luma_error_plain": 16.63929421386716,
+      "tile_luma_error_worst_dither": 27.75484999999999,
+      "tile_luma_error_worst_plain": 36.66247499999997,
+      "tile_rgb_error_dither": 12.50014919704863,
+      "tile_rgb_error_plain": 19.72277832031248,
+      "used_values_dither": 4,
+      "used_values_plain": 4,
+      "within_size_limit": true,
+      "zlib_bytes_dither": 639,
+      "zlib_bytes_plain": 149,
+      "zlib_ratio": 4.2885906040268456
+    },
+    {
+      "block_size": 12,
+      "bpp": 2,
+      "description": "vertical sky gradient with text",
+      "deterministic": true,
+      "luma_bias_dither": -1.4741530029296424,
+      "luma_bias_plain": -1.2599410888670544,
+      "luma_error_bound_dither": 56.672799999999995,
+      "luma_error_bound_plain": 41.90559999999999,
+      "mean_color_error_dither": 23.4263916015625,
+      "mean_color_error_plain": 22.3878173828125,
+      "ms_dither": 48.069112992379814,
+      "ms_plain": 19.21957201557234,
+      "packed_bytes_dither": 6144,
+      "packed_bytes_plain": 6144,
+      "packed_deflate_bytes_dither": 338,
+      "packed_deflate_bytes_plain": 124,
+      "packed_deflate_ratio": 2.725806451612903,
+      "packed_ratio": 1.0,
+      "palette": [
+        [
+          8,
+          16,
+          40
+        ],
+        [
+          40,
+          96,
+          160
+        ],
+        [
+          120,
+          184,
+          232
+        ],
+        [
+          250,
+          250,
+          250
+        ]
+      ],
+      "required_bpp_dither": 2,
+      "required_bpp_plain": 2,
+      "sample": "vgrad",
+      "size": [
+        192,
+        128
+      ],
+      "suppressed_pixels": 3744,
+      "suppressed_pixels_changed": 0,
+      "tile_luma_error_dither": 11.842144539388052,
+      "tile_luma_error_plain": 16.63929421386716,
+      "tile_luma_error_worst_dither": 28.250699999999966,
+      "tile_luma_error_worst_plain": 36.66247499999997,
+      "tile_rgb_error_dither": 15.905829535590252,
+      "tile_rgb_error_plain": 19.72277832031248,
+      "used_values_dither": 4,
+      "used_values_plain": 4,
+      "within_size_limit": true,
+      "zlib_bytes_dither": 355,
+      "zlib_bytes_plain": 149,
+      "zlib_ratio": 2.38255033557047
+    },
+    {
+      "block_size": 6,
+      "bpp": 2,
+      "description": "horizontal warm gradient with text",
+      "deterministic": true,
+      "luma_bias_dither": -4.748819246419273,
+      "luma_bias_plain": -4.476833121744821,
+      "luma_error_bound_dither": 111.94739999999996,
+      "luma_error_bound_plain": 52.9828,
+      "mean_color_error_dither": 39.45142957899306,
+      "mean_color_error_plain": 36.22471788194444,
+      "ms_dither": 49.49150298489258,
+      "ms_plain": 18.866741011152044,
+      "packed_bytes_dither": 6144,
+      "packed_bytes_plain": 6144,
+      "packed_deflate_bytes_dither": 2048,
+      "packed_deflate_bytes_plain": 148,
+      "packed_deflate_ratio": 13.837837837837839,
+      "packed_ratio": 1.0,
+      "palette": [
+        [
+          16,
+          8,
+          6
+        ],
+        [
+          150,
+          52,
+          28
+        ],
+        [
+          236,
+          148,
+          72
+        ],
+        [
+          255,
+          244,
+          214
+        ]
+      ],
+      "required_bpp_dither": 2,
+      "required_bpp_plain": 2,
+      "sample": "hgrad",
+      "size": [
+        192,
+        128
+      ],
+      "suppressed_pixels": 1296,
+      "suppressed_pixels_changed": 0,
+      "tile_luma_error_dither": 12.463126359049477,
+      "tile_luma_error_plain": 21.002035009765596,
+      "tile_luma_error_worst_dither": 35.14520937499999,
+      "tile_luma_error_worst_plain": 47.15392499999999,
+      "tile_rgb_error_dither": 24.63260904947916,
+      "tile_rgb_error_plain": 34.59684244791671,
+      "used_values_dither": 4,
+      "used_values_plain": 4,
+      "within_size_limit": true,
+      "zlib_bytes_dither": 2148,
+      "zlib_bytes_plain": 221,
+      "zlib_ratio": 9.71945701357466
+    },
+    {
+      "block_size": 12,
+      "bpp": 2,
+      "description": "horizontal warm gradient with text",
+      "deterministic": true,
+      "luma_bias_dither": -4.544860074869807,
+      "luma_bias_plain": -4.476833121744821,
+      "luma_error_bound_dither": 77.02759999999995,
+      "luma_error_bound_plain": 52.9828,
+      "mean_color_error_dither": 37.756266276041664,
+      "mean_color_error_plain": 36.22471788194444,
+      "ms_dither": 49.102087010396644,
+      "ms_plain": 18.37256600265391,
+      "packed_bytes_dither": 6144,
+      "packed_bytes_plain": 6144,
+      "packed_deflate_bytes_dither": 876,
+      "packed_deflate_bytes_plain": 148,
+      "packed_deflate_ratio": 5.918918918918919,
+      "packed_ratio": 1.0,
+      "palette": [
+        [
+          16,
+          8,
+          6
+        ],
+        [
+          150,
+          52,
+          28
+        ],
+        [
+          236,
+          148,
+          72
+        ],
+        [
+          255,
+          244,
+          214
+        ]
+      ],
+      "required_bpp_dither": 2,
+      "required_bpp_plain": 2,
+      "sample": "hgrad",
+      "size": [
+        192,
+        128
+      ],
+      "suppressed_pixels": 2304,
+      "suppressed_pixels_changed": 0,
+      "tile_luma_error_dither": 14.045469091796877,
+      "tile_luma_error_plain": 21.002035009765596,
+      "tile_luma_error_worst_dither": 47.15392499999999,
+      "tile_luma_error_worst_plain": 47.15392499999999,
+      "tile_rgb_error_dither": 27.423990885416675,
+      "tile_rgb_error_plain": 34.59684244791671,
+      "used_values_dither": 4,
+      "used_values_plain": 4,
+      "within_size_limit": true,
+      "zlib_bytes_dither": 976,
+      "zlib_bytes_plain": 221,
+      "zlib_ratio": 4.416289592760181
+    },
+    {
+      "block_size": 6,
+      "bpp": 2,
+      "description": "radial gradient with hotspot and text",
+      "deterministic": true,
+      "luma_bias_dither": 0.14690621744791385,
+      "luma_bias_plain": -2.2798724934894934,
+      "luma_error_bound_dither": 62.45099999999999,
+      "luma_error_bound_plain": 54.36419999999998,
+      "mean_color_error_dither": 21.90884060329861,
+      "mean_color_error_plain": 19.104044596354168,
+      "ms_dither": 48.760667006717995,
+      "ms_plain": 19.320897001307458,
+      "packed_bytes_dither": 6144,
+      "packed_bytes_plain": 6144,
+      "packed_deflate_bytes_dither": 2073,
+      "packed_deflate_bytes_plain": 457,
+      "packed_deflate_ratio": 4.536105032822757,
+      "packed_ratio": 1.0,
+      "palette": [
+        [
+          6,
+          18,
+          58
+        ],
+        [
+          24,
+          108,
+          132
+        ],
+        [
+          72,
+          196,
+          148
+        ],
+        [
+          255,
+          255,
+          250
+        ]
+      ],
+      "required_bpp_dither": 2,
+      "required_bpp_plain": 2,
+      "sample": "radial",
+      "size": [
+        192,
+        128
+      ],
+      "suppressed_pixels": 2304,
+      "suppressed_pixels_changed": 0,
+      "tile_luma_error_dither": 4.944056070963543,
+      "tile_luma_error_plain": 19.365238850911435,
+      "tile_luma_error_worst_dither": 22.00591249999998,
+      "tile_luma_error_worst_plain": 34.54619687499999,
+      "tile_rgb_error_dither": 5.355048285590279,
+      "tile_rgb_error_plain": 17.180813259548604,
+      "used_values_dither": 4,
+      "used_values_plain": 4,
+      "within_size_limit": true,
+      "zlib_bytes_dither": 2118,
+      "zlib_bytes_plain": 434,
+      "zlib_ratio": 4.880184331797235
+    },
+    {
+      "block_size": 12,
+      "bpp": 2,
+      "description": "radial gradient with hotspot and text",
+      "deterministic": true,
+      "luma_bias_dither": 0.14385211588541572,
+      "luma_bias_plain": -2.2798724934894934,
+      "luma_error_bound_dither": 58.373599999999996,
+      "luma_error_bound_plain": 54.36419999999998,
+      "mean_color_error_dither": 21.3033447265625,
+      "mean_color_error_plain": 19.104044596354168,
+      "ms_dither": 47.033945011207834,
+      "ms_plain": 18.711237993557006,
+      "packed_bytes_dither": 6144,
+      "packed_bytes_plain": 6144,
+      "packed_deflate_bytes_dither": 1870,
+      "packed_deflate_bytes_plain": 457,
+      "packed_deflate_ratio": 4.091903719912473,
+      "packed_ratio": 1.0,
+      "palette": [
+        [
+          6,
+          18,
+          58
+        ],
+        [
+          24,
+          108,
+          132
+        ],
+        [
+          72,
+          196,
+          148
+        ],
+        [
+          255,
+          255,
+          250
+        ]
+      ],
+      "required_bpp_dither": 2,
+      "required_bpp_plain": 2,
+      "sample": "radial",
+      "size": [
+        192,
+        128
+      ],
+      "suppressed_pixels": 3888,
+      "suppressed_pixels_changed": 0,
+      "tile_luma_error_dither": 6.807729785156248,
+      "tile_luma_error_plain": 19.365238850911435,
+      "tile_luma_error_worst_dither": 34.232921874999995,
+      "tile_luma_error_worst_plain": 34.54619687499999,
+      "tile_rgb_error_dither": 6.859578450520833,
+      "tile_rgb_error_plain": 17.180813259548604,
+      "used_values_dither": 4,
+      "used_values_plain": 4,
+      "within_size_limit": true,
+      "zlib_bytes_dither": 1969,
+      "zlib_bytes_plain": 434,
+      "zlib_ratio": 4.5368663594470044
+    }
+  ],
+  "size_limit": 1.15,
+  "strength_max": 0.75,
+  "strength_min": 0.0,
+  "texture_scale": 64.0
+}
