@@ -8,6 +8,7 @@ int grid_init(Grid* g, int cols, int rows, float cell, float minx, float miny) {
     g->cols = cols; g->rows = rows; g->cell = cell;
     g->minx = minx; g->miny = miny;
     g->count = 0; g->cap = 64;
+    g->maxr = 0.0f;
     g->head = (int*)malloc(sizeof(int) * (size_t)(cols * rows));
     g->next = (int*)malloc(sizeof(int) * (size_t)g->cap);
     g->items = (GridItem*)malloc(sizeof(GridItem) * (size_t)g->cap);
@@ -42,18 +43,21 @@ int grid_insert(Grid* g, int id, float x, float y, float r) {
     }
     int idx = g->count++;
     g->items[idx].id = id; g->items[idx].x = x; g->items[idx].y = y; g->items[idx].r = r;
+    if (r > g->maxr) g->maxr = r;
     int c = cell_of(g, x, y);
     g->next[idx] = g->head[c];
     g->head[c] = idx;
     return 0;
 }
 
-int grid_query_circle(const Grid* g, float cx, float cy, float rad, int* out, int cap) {
-    if (!g || !out || rad < 0.0f) return -1;
-    int c0x = (int)((cx - rad - g->minx) / g->cell);
-    int c1x = (int)((cx + rad - g->minx) / g->cell);
-    int c0y = (int)((cy - rad - g->miny) / g->cell);
-    int c1y = (int)((cy + rad - g->miny) / g->cell);
+static int query_impl(const Grid* g, float cx, float cy, float rad, int* out, int cap, long* cand) {
+    /* pad by the largest item radius: items are stored by center, so a hit
+     * item's center can lie up to rad + maxr away from the query center */
+    float pad = rad + g->maxr;
+    int c0x = (int)((cx - pad - g->minx) / g->cell);
+    int c1x = (int)((cx + pad - g->minx) / g->cell);
+    int c0y = (int)((cy - pad - g->miny) / g->cell);
+    int c1y = (int)((cy + pad - g->miny) / g->cell);
     if (c0x < 0) c0x = 0; if (c0y < 0) c0y = 0;
     if (c1x >= g->cols) c1x = g->cols - 1;
     if (c1y >= g->rows) c1y = g->rows - 1;
@@ -61,6 +65,7 @@ int grid_query_circle(const Grid* g, float cx, float cy, float rad, int* out, in
     for (int y = c0y; y <= c1y; ++y)
         for (int x = c0x; x <= c1x; ++x) {
             for (int i = g->head[y * g->cols + x]; i != -1; i = g->next[i]) {
+                if (cand) ++*cand;
                 float dx = g->items[i].x - cx, dy = g->items[i].y - cy;
                 float d2 = dx * dx + dy * dy;
                 float rr = rad + g->items[i].r;
@@ -71,6 +76,17 @@ int grid_query_circle(const Grid* g, float cx, float cy, float rad, int* out, in
             }
         }
     return n;
+}
+
+int grid_query_circle(const Grid* g, float cx, float cy, float rad, int* out, int cap) {
+    if (!g || !out || rad < 0.0f) return -1;
+    return query_impl(g, cx, cy, rad, out, cap, NULL);
+}
+
+int grid_query_circle_ex(const Grid* g, float cx, float cy, float rad, int* out, int cap, long* candidates) {
+    if (!g || !out || rad < 0.0f) return -1;
+    if (candidates) *candidates = 0;
+    return query_impl(g, cx, cy, rad, out, cap, candidates);
 }
 
 int grid_count(const Grid* g) { return g ? g->count : 0; }
@@ -86,4 +102,5 @@ void grid_clear(Grid* g) {
     if (!g) return;
     for (int i = 0; i < g->cols * g->rows; ++i) g->head[i] = -1;
     g->count = 0;
+    g->maxr = 0.0f;
 }

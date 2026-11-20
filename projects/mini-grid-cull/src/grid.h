@@ -8,11 +8,14 @@ typedef struct {
     int* next;      /* per-item next index */
     GridItem* items;
     int count, cap;
+    float maxr;     /* largest item radius, pads the broadphase range */
 } Grid;
 int grid_init(Grid* g, int cols, int rows, float cell, float minx, float miny);
 void grid_free(Grid* g);
 int grid_insert(Grid* g, int id, float x, float y, float r);
 int grid_query_circle(const Grid* g, float cx, float cy, float rad, int* out, int cap);
+/* same as grid_query_circle, also reports broadphase candidates examined */
+int grid_query_circle_ex(const Grid* g, float cx, float cy, float rad, int* out, int cap, long* candidates);
 int grid_count(const Grid* g);
 void grid_clear(Grid* g);
 int grid_cells_used(const Grid* g);
