@@ -1,0 +1,4 @@
+plan,in_frames,status,copy_bit_identical,distinct_bit_patterns,median_ms_2s
+empty_list,96000,OK_BYPASS,1,5/5,0.0903
+one_factor,96000,OK_BYPASS,1,5/5,0.0910
+ones_list,96000,OK_BYPASS,1,5/5,0.0888

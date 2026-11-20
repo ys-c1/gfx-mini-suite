@@ -9,5 +9,6 @@
 | projects/mini-tone-lut | C++17 | 色调曲线 LUT 构建与应用 |
 | projects/mini-palette-dither | Python 3 | 调色板映射与量化辅助 |
 | projects/mini-audio-fifo | C11 | 交织浮点音频 FIFO |
+| projects/mini-audio-decim | C11 | 多级抽取与抗混叠滤波器设计 |
 
 每个子目录进入后执行 `make test` 即可编译并运行自带测试。

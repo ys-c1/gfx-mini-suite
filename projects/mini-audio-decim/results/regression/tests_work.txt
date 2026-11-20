@@ -1,0 +1,49 @@
+make[1]: Entering directory '@BASE@/projects/mini-grid-cull'
+cc -O2 -Wall -Wextra -std=c11 src/grid.c tests/test_grid.c -lm -o build/test_grid
+src/grid.c: In function ‘cell_of’:
+src/grid.c:29:5: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+   29 |     if (cx < 0) cx = 0; if (cx >= g->cols) cx = g->cols - 1;
+      |     ^~
+src/grid.c:29:25: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   29 |     if (cx < 0) cx = 0; if (cx >= g->cols) cx = g->cols - 1;
+      |                         ^~
+src/grid.c:30:5: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+   30 |     if (cy < 0) cy = 0; if (cy >= g->rows) cy = g->rows - 1;
+      |     ^~
+src/grid.c:30:25: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   30 |     if (cy < 0) cy = 0; if (cy >= g->rows) cy = g->rows - 1;
+      |                         ^~
+src/grid.c: In function ‘grid_query_circle’:
+src/grid.c:57:5: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+   57 |     if (c0x < 0) c0x = 0; if (c0y < 0) c0y = 0;
+      |     ^~
+src/grid.c:57:27: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   57 |     if (c0x < 0) c0x = 0; if (c0y < 0) c0y = 0;
+      |                           ^~
+./build/test_grid
+445 checks, 0 failures
+make[1]: Leaving directory '@BASE@/projects/mini-grid-cull'
+make[1]: Entering directory '@BASE@/projects/mini-bitplane-pack'
+cc -O2 -Wall -Wextra -std=c11 src/bitpack.c tests/test_bitpack.c -o build/test_bitpack
+./build/test_bitpack
+102 checks, 0 failures
+make[1]: Leaving directory '@BASE@/projects/mini-bitplane-pack'
+make[1]: Entering directory '@BASE@/projects/mini-tone-lut'
+g++ -O2 -Wall -Wextra -std=c++17 src/tone.cpp tests/test_tone.cpp -o build/test_tone
+./build/test_tone
+264 checks, 0 failures
+make[1]: Leaving directory '@BASE@/projects/mini-tone-lut'
+make[1]: Entering directory '@BASE@/projects/mini-palette-dither'
+python3 -m py_compile src/palette.py
+python3 tests/test_palette.py
+PASS test_invalid_levels
+PASS test_nearest_identity
+PASS test_uniform_levels
+PASS test_usage_counts
+4 checks, 0 failures
+make[1]: Leaving directory '@BASE@/projects/mini-palette-dither'
+make[1]: Entering directory '@BASE@/projects/mini-audio-fifo'
+cc -O2 -Wall -Wextra -std=c11 src/fifo.c tests/test_fifo.c -lm -o build/test_fifo
+./build/test_fifo
+54 checks, 0 failures
+make[1]: Leaving directory '@BASE@/projects/mini-audio-fifo'

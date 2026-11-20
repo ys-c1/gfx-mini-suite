@@ -1,0 +1,9 @@
+case,total_factor,in_frames,out_frames,status,tail_frames,short_input,partial,bypass,peak_out
+factor_one_empty,1,100,100,OK_BYPASS,0,0,0,1,0.99995762
+factor_one_single,1,100,100,OK_BYPASS,0,0,0,1,0.99995762
+factor_one_list,1,100,100,OK_BYPASS,0,0,0,1,0.99995762
+nondivisible_1001,12,1001,83,OK_TAIL,5,0,1,0,0.99902570
+nondivisible_5_of_6,6,5,0,OK_SHORT,5,1,1,0,0.00000000
+divisible_12000,12,12000,1000,OK,0,0,0,0,1.00001156
+short_3_of_span,12,3,0,OK_SHORT,3,1,1,0,0.00000000
+short_span_minus_1,12,816,68,OK_SHORT,0,1,0,0,0.99783391
