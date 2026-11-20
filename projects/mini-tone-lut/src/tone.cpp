@@ -1,12 +1,9 @@
 #include "tone.h"
-#include <cmath>
-#include <algorithm>
 
 void build_gamma_lut(double gamma, std::uint8_t lut[256]) {
     if (gamma <= 0.0) gamma = 1.0;
     for (int i = 0; i < 256; ++i) {
-        double v = std::pow((double)i / 255.0, 1.0 / gamma) * 255.0;
-        lut[i] = (std::uint8_t)std::clamp((int)std::lround(v), 0, 255);
+        lut[i] = tone_detail::gamma_lut_entry(i, gamma);
     }
     lut[0] = 0; lut[255] = 255;
 }
