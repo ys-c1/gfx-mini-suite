@@ -6,7 +6,10 @@ all:
 test: all
 	$(PYTHON) tests/test_palette.py
 
+bench: all
+	$(PYTHON) -I tests/bench_palette.py
+
 clean:
 	rm -rf src/__pycache__ tests/__pycache__
 
-.PHONY: all test clean
+.PHONY: all test bench clean
